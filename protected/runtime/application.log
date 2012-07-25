@@ -1,0 +1,203 @@
+2012/07/25 13:50:27 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "index".' in /home/alkagar/repos/yii/framework/web/CController.php:879
+Stack trace:
+#0 /home/alkagar/repos/yii/framework/web/CController.php(783): CController->renderPartial('index', NULL, true)
+#1 /home/alkagar/repos/uptime/protected/controllers/SiteController.php(32): CController->render('index')
+#2 /home/alkagar/repos/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionIndex()
+#3 /home/alkagar/repos/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /home/alkagar/repos/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#5 /home/alkagar/repos/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /home/alkagar/repos/yii/framework/web/CWebApplication.php(283): CController->run('')
+#7 /home/alkagar/repos/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('')
+#8 /home/alkagar/repos/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /home/alkagar/repos/uptime/index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+---
+2012/07/25 13:57:04 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "index".' in /home/alkagar/repos/yii/framework/web/CController.php:879
+Stack trace:
+#0 /home/alkagar/repos/yii/framework/web/CController.php(783): CController->renderPartial('index', NULL, true)
+#1 /home/alkagar/repos/uptime/protected/controllers/SiteController.php(32): CController->render('index')
+#2 /home/alkagar/repos/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionIndex()
+#3 /home/alkagar/repos/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /home/alkagar/repos/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#5 /home/alkagar/repos/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /home/alkagar/repos/yii/framework/web/CWebApplication.php(283): CController->run('')
+#7 /home/alkagar/repos/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('')
+#8 /home/alkagar/repos/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /home/alkagar/repos/uptime/index.php(35): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+---
+2012/07/25 13:57:04 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "index".' in /home/alkagar/repos/yii/framework/web/CController.php:879
+Stack trace:
+#0 /home/alkagar/repos/yii/framework/web/CController.php(783): CController->renderPartial('index', NULL, true)
+#1 /home/alkagar/repos/uptime/protected/controllers/SiteController.php(32): CController->render('index')
+#2 /home/alkagar/repos/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionIndex()
+#3 /home/alkagar/repos/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /home/alkagar/repos/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#5 /home/alkagar/repos/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /home/alkagar/repos/yii/framework/web/CWebApplication.php(283): CController->run('')
+#7 /home/alkagar/repos/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('')
+#8 /home/alkagar/repos/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /home/alkagar/repos/uptime/index.php(35): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+---
+2012/07/25 13:57:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /home/alkagar/repos/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /home/alkagar/repos/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 /home/alkagar/repos/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /home/alkagar/repos/uptime/index.php(35): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/07/25 13:57:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /home/alkagar/repos/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /home/alkagar/repos/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 /home/alkagar/repos/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /home/alkagar/repos/uptime/index.php(35): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/07/25 13:57:05 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "index".' in /home/alkagar/repos/yii/framework/web/CController.php:879
+Stack trace:
+#0 /home/alkagar/repos/yii/framework/web/CController.php(783): CController->renderPartial('index', NULL, true)
+#1 /home/alkagar/repos/uptime/protected/controllers/SiteController.php(32): CController->render('index')
+#2 /home/alkagar/repos/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionIndex()
+#3 /home/alkagar/repos/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /home/alkagar/repos/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#5 /home/alkagar/repos/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /home/alkagar/repos/yii/framework/web/CWebApplication.php(283): CController->run('')
+#7 /home/alkagar/repos/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('')
+#8 /home/alkagar/repos/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /home/alkagar/repos/uptime/index.php(35): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+---
+2012/07/25 13:57:05 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "index".' in /home/alkagar/repos/yii/framework/web/CController.php:879
+Stack trace:
+#0 /home/alkagar/repos/yii/framework/web/CController.php(783): CController->renderPartial('index', NULL, true)
+#1 /home/alkagar/repos/uptime/protected/controllers/SiteController.php(32): CController->render('index')
+#2 /home/alkagar/repos/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionIndex()
+#3 /home/alkagar/repos/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /home/alkagar/repos/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#5 /home/alkagar/repos/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /home/alkagar/repos/yii/framework/web/CWebApplication.php(283): CController->run('')
+#7 /home/alkagar/repos/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('')
+#8 /home/alkagar/repos/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#9 /home/alkagar/repos/uptime/index.php(35): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+---
+2012/07/25 13:57:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /home/alkagar/repos/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /home/alkagar/repos/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 /home/alkagar/repos/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /home/alkagar/repos/uptime/index.php(35): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/07/25 13:57:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /home/alkagar/repos/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /home/alkagar/repos/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 /home/alkagar/repos/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /home/alkagar/repos/uptime/index.php(35): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/07/25 13:59:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /home/alkagar/repos/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /home/alkagar/repos/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 /home/alkagar/repos/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /home/alkagar/repos/uptime/index.php(35): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/07/25 13:59:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /home/alkagar/repos/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /home/alkagar/repos/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 /home/alkagar/repos/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /home/alkagar/repos/uptime/index.php(35): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/07/25 13:59:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /home/alkagar/repos/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /home/alkagar/repos/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 /home/alkagar/repos/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /home/alkagar/repos/uptime/index.php(35): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/07/25 13:59:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /home/alkagar/repos/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /home/alkagar/repos/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 /home/alkagar/repos/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /home/alkagar/repos/uptime/index.php(35): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/07/25 14:00:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /home/alkagar/repos/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /home/alkagar/repos/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 /home/alkagar/repos/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /home/alkagar/repos/uptime/index.php(35): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/07/25 14:00:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /home/alkagar/repos/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /home/alkagar/repos/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 /home/alkagar/repos/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /home/alkagar/repos/uptime/index.php(35): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/07/25 14:00:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /home/alkagar/repos/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /home/alkagar/repos/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 /home/alkagar/repos/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /home/alkagar/repos/uptime/index.php(35): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/07/25 14:00:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /home/alkagar/repos/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /home/alkagar/repos/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 /home/alkagar/repos/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /home/alkagar/repos/uptime/index.php(35): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/07/25 14:00:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /home/alkagar/repos/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /home/alkagar/repos/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 /home/alkagar/repos/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /home/alkagar/repos/uptime/index.php(35): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/07/25 14:00:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /home/alkagar/repos/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /home/alkagar/repos/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 /home/alkagar/repos/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /home/alkagar/repos/uptime/index.php(35): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/07/25 14:59:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /home/alkagar/repos/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /home/alkagar/repos/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 /home/alkagar/repos/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /home/alkagar/repos/uptime/index.php(35): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/07/25 14:59:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /home/alkagar/repos/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /home/alkagar/repos/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 /home/alkagar/repos/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /home/alkagar/repos/uptime/index.php(35): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---

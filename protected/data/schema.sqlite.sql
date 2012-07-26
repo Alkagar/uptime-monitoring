@@ -1,7 +1,9 @@
 CREATE TABLE logs (
     id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    log_type VARCHAR(10) NOT NULL,
-    time INTEGER NOT NULL,
-    code VARCHAR(128) NOT NULL,
-    data TEXT NOT NULL
+    datetime INTEGER NOT NULL,
+    monitor_type INTEGER NOT NULL,
+    specification TEXT NOT NULL,
+    parameters TEXT NOT NULL,
+    result_info TEXT NOT NULL,
+    result_code INTEGER NOT NULL
 );

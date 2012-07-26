@@ -16,6 +16,9 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+                'application.monitors.*',
+                'application.monitors.behaviors.*',
+                'application.monitors.objects.*',
 	),
 
 	'modules'=>array(
@@ -37,7 +40,7 @@ return array(
 			),
 		),
 		'db'=>array(
-			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/uptime.db',
+			'connectionString' => 'sqlite:/home/alkagar/repos/uptime/protected/data/uptime.db',
 		),
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors

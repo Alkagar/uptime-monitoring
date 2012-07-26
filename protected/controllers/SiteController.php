@@ -6,7 +6,13 @@ class SiteController extends Controller
 	{
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
-		$this->render('index');
+
+                $ping = new APing();
+                $ping->monitor('erk.uj.edu.pl', 80);
+                
+                $this->render('index');
+                $logs = Logs::model()->findAll();
+                print_r($logs);
 	}
 
 	/**

@@ -24,12 +24,12 @@
         public function __toString() 
         {
             return '<pre>' . 
-                $this->datetime . ' | ' . 
-                $this->monitor_type . ' | ' . 
+                date('Y-m-d H:i:s', $this->datetime) . ' | ' . 
+                sprintf('%-20s', AMonitorsCodes::$MONITOR_NAMES[$this->monitor_type]) . ' | ' . 
                 $this->result_code . ' | ' . 
-                $this->result_info . ' | ' .
-                $this->parameters . ' | ' . 
-                $this->specification . '</pre>';
+                sprintf('%-30s', $this->result_info) . ' | ' .
+                sprintf('%-30s', $this->parameters) . ' | ' . 
+                sprintf('%-30s', $this->specification) . '</pre>';
         }
 
         public static function getLastXCriteria($limit = 5)

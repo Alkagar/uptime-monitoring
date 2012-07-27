@@ -16,8 +16,18 @@
             $db = new ADb('http://erk.kibeth:23480/uptime/db');
             $db->monitor();
 
+            $db = new ASpace('http://erk.kibeth:23480/uptime/space', 512000);
+            $db->monitor();
+
+            $db = new AOverload('http://erk.kibeth:23480/uptime/errors');
+            $db->monitor();
+
+            $db = new ABreak('http://erk.kibeth:23480/uptime/errors');
+            $db->monitor();
+
             $this->render('index');
-            $logs = Logs::model()->findAll(Logs::getLastXCriteria(3));
+
+            $logs = Logs::model()->findAll(Logs::getLastXCriteria(6));
             foreach($logs as $log) {
                 echo $log . '<br />';
             }

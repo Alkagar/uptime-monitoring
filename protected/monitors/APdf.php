@@ -14,9 +14,9 @@
             $this->_pdfUrl = $pdfUrl;
         }
 
-        public function monitor()
+        protected function _monitor()
         {
-            $isPdfDaemonRunning = $this->runMonitorWithTimer(array($this, '_pdf'), array($this->_pdfUrl));
+            $isPdfDaemonRunning = $this->_pdf($this->_pdfUrl);
             $this->_isPdfDaemonRunning = $isPdfDaemonRunning;
             $this->prepareToLogToDb();
         }

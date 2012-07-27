@@ -19,9 +19,8 @@
             $this->attachBehavior('ALog', 'ALogBehavior');
         }
 
-        public function monitor()
+        protected function _monitor()
         {
-            //$ms = $this->runMonitorWithTimer('AUtil::ping', array($this->_host, $this->_port));
             $ms = AUtil::ping($this->_host, $this->_port);
             $this->_pingResult = $ms;
             $this->prepareToLogToDb();

@@ -5,7 +5,7 @@
     * @copyright 
     * @author Jakub Mrowiec Alkagar <alkagar@gmail.com> 
     */
-    class AMonitor extends CComponent implements AMonitorInterface
+    abstract class AMonitor extends CComponent implements AMonitorInterface
     { 
         public  $resultInfo;
         public  $specification;
@@ -18,19 +18,14 @@
             $this->attachBehavior('ALog', 'ALogBehavior');
         }
 
-        public function runMonitorWithTimer($callback, array $parameters = array()) 
+        public function monitor() 
         {
-            if(!is_callable($callback)) {
-                throw new Exception('$callback is not callable');
-            }
             $tB = microtime(true); 
-            $result = call_user_func_array($callback, $parameters); 
+            $result = $this->_monitor();
             $tA = microtime(true); 
             $this->_timePassed  = round((($tA - $tB) * 1000), 2); 
             return $result;
         }
 
-        public function monitor() { throw new Exception('Not yet implemented!'); }
-        public function getMonitorResult() { throw new Exception('Not yet implemented!'); }
-        public function getMonitorCode() { throw new Exception('Not yet implemented!'); }
+        protected function _monitor() { throw new Exception('Not yet implemented!'); }
     }

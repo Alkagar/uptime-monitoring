@@ -1,5 +1,5 @@
 <?php
-    class ASpace extends CComponent implements AMonitorInterface
+    class ASpace extends AMonitor
     {
 
         /** Monitor parameters */
@@ -23,7 +23,7 @@
             $this->attachBehavior('ALog', 'ALogBehavior');
         }
 
-        public function monitor()
+        protected function _monitor()
         {
             $usedSpace = $this->_space($this->_spaceUrl);
             $this->_usedSpace = $usedSpace;

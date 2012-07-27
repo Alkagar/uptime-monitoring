@@ -20,9 +20,9 @@
             $this->attachBehavior('ALog', 'ALogBehavior');
         }
 
-        public function monitor()
+        public function _monitor()
         {
-            $isPageOnBreak = $this->runMonitorWithTimer(array($this, '_break'), array($this->_breakUrl));
+            $isPageOnBreak = $this->_break($this->_breakUrl);
             $this->_isPageOnBreak = $isPageOnBreak;
             $this->prepareToLogToDb();
         }

@@ -20,9 +20,9 @@
             $this->attachBehavior('ALog', 'ALogBehavior');
         }
 
-        public function monitor()
+        protected function _monitor()
         {
-            $isPageOverloaded = $this->runMonitorWithTimer(array($this, '_overload'), array($this->_overloadUrl));
+            $isPageOverloaded = $this->_overload($this->_overloadUrl);
             $this->_isPageOverloaded = $isPageOverloaded;
             $this->prepareToLogToDb();
         }

@@ -20,9 +20,9 @@
             $this->attachBehavior('ALog', 'ALogBehavior');
         }
 
-        public function monitor()
+        protected function _monitor()
         {
-            $isDbWorking = $this->runMonitorWithTimer(array($this, '_db'), array($this->_dbUrl));
+            $isDbWorking = $this->_db($this->_dbUrl);
             $this->_isDbWorking = $isDbWorking;
             $this->prepareToLogToDb();
         }

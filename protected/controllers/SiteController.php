@@ -4,26 +4,8 @@
     {
         public function actionIndex()
         {
-            // renders the view file 'protected/views/site/index.php'
-            // using the default layout 'protected/views/layouts/main.php'
-
-            //$ping = new APing('erk.uj.edu.pl', 80);
-            //$ping->monitor();
-
-            //$pdf = new APdf('http://erk.kibeth:23480/uptime/pdf');
-            //$pdf->monitor();
-
-            //$db = new ADb('http://erk.kibeth:23480/uptime/db');
-            //$db->monitor();
-
-            //$db = new ASpace('http://erk.kibeth:23480/uptime/space', 512000);
-            //$db->monitor();
-
-            //$db = new AOverload('http://erk.kibeth:23480/uptime/errors');
-            //$db->monitor();
-
-            //$db = new ABreak('http://erk.kibeth:23480/uptime/errors');
-            //$db->monitor();
+            $erkSuite = new AErkSuite();
+            $erkSuite->runSuite();
 
             $this->render('index');
 

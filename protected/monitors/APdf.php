@@ -1,5 +1,5 @@
 <?php
-    class APdf extends CComponent implements AMonitorInterface
+    class APdf extends AMonitor 
     {
 
         /** Monitor parameters */
@@ -8,21 +8,15 @@
         /** Monitor specification */
         private $_pdfUrl;
 
-        public  $resultInfo;
-        public  $specification;
-        public  $parameters;
-
-
         public function __construct($pdfUrl)
         {
+            parent::__construct();
             $this->_pdfUrl = $pdfUrl;
-
-            $this->attachBehavior('ALog', 'ALogBehavior');
         }
 
         public function monitor()
         {
-            $isPdfDaemonRunning = $this->_pdf($this->_pdfUrl);
+            $isPdfDaemonRunning = $this->runMonitorWithTimer(array($this, '_pdf'), array($this->_pdfUrl));
             $this->_isPdfDaemonRunning = $isPdfDaemonRunning;
             $this->prepareToLogToDb();
         }
@@ -34,7 +28,8 @@
             );
             // TODO: add information about ping time for this monitor ??
             $this->resultInfo = array(
-                'isPdfDaemonRunning'   => $this->_isPdfDaemonRunning,
+                'isPdfDaemonRunning'    => $this->_isPdfDaemonRunning,
+                'timePassed'            => $this->_timePassed,
             );
             $this->parameters = array( );
         }
@@ -49,7 +44,7 @@
             return AMonitorsCodes::MONITOR_PDF;
         }
 
-        private function _pdf($pdfUrl) 
+        protected function _pdf($pdfUrl) 
         {
             $pdfFile = file($pdfUrl);
             return strpos($pdfFile[0], '%PDF-') === 0; 

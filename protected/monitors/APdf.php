@@ -18,7 +18,6 @@
         {
             $isPdfDaemonRunning = $this->_pdf($this->_pdfUrl);
             $this->_isPdfDaemonRunning = $isPdfDaemonRunning;
-            $this->prepareToLogToDb();
         }
 
         public function prepareLogData()

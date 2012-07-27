@@ -13,17 +13,15 @@
 
         public function __construct($host, $port = 80)
         {
+            parent::__construct();
             $this->_port = $port;
             $this->_host = $host;
-
-            $this->attachBehavior('ALog', 'ALogBehavior');
         }
 
         protected function _monitor()
         {
             $ms = AUtil::ping($this->_host, $this->_port);
             $this->_pingResult = $ms;
-            $this->prepareToLogToDb();
         }
 
         public function prepareLogData()

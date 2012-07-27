@@ -34,6 +34,7 @@
             $this->owner->prepareLogData();
             $logEntry = $this->owner->prepareLogEntry();
             $this->owner->logDB($logEntry);
+            return $logEntry;
         }
 
     }

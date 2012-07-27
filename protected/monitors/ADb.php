@@ -15,16 +15,14 @@
 
         public function __construct($dbUrl)
         {
+            parent::__construct();
             $this->_dbUrl = $dbUrl;
-
-            $this->attachBehavior('ALog', 'ALogBehavior');
         }
 
         protected function _monitor()
         {
             $isDbWorking = $this->_db($this->_dbUrl);
             $this->_isDbWorking = $isDbWorking;
-            $this->prepareToLogToDb();
         }
 
         public function prepareLogData()

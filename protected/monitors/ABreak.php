@@ -15,16 +15,14 @@
 
         public function __construct($breakUrl)
         {
+            parent::__construct();
             $this->_breakUrl = $breakUrl;
-
-            $this->attachBehavior('ALog', 'ALogBehavior');
         }
 
         public function _monitor()
         {
             $isPageOnBreak = $this->_break($this->_breakUrl);
             $this->_isPageOnBreak = $isPageOnBreak;
-            $this->prepareToLogToDb();
         }
 
         public function prepareLogData()

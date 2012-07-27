@@ -15,16 +15,14 @@
 
         public function __construct($overloadUrl)
         {
+            parent::__construct();
             $this->_overloadUrl = $overloadUrl;
-
-            $this->attachBehavior('ALog', 'ALogBehavior');
         }
 
         protected function _monitor()
         {
             $isPageOverloaded = $this->_overload($this->_overloadUrl);
             $this->_isPageOverloaded = $isPageOverloaded;
-            $this->prepareToLogToDb();
         }
 
         public function prepareLogData()

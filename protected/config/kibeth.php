@@ -14,6 +14,7 @@ return array(
 
         // autoloading model and component classes
         'import'=>array(
+                'application.extensions.KEmail.KEmail',
                 'application.models.*',
                 'application.components.*',
                 'application.monitors.*',
@@ -27,8 +28,15 @@ return array(
 
         // application components
         'components'=>array(
-                'user'=>array(
-                        // enable cookie-based authentication
+            'email'=>array(
+                'class'=>'KEmail',
+                'host_name'=>'smtp.gmail.com', //Hostname or IP of smtp server
+                'user' => 'alkagar@gmail.com',
+                'password' => 'Tar-Telemnar#1',
+                'host_port' => 465,
+            ),
+            'user'=>array(
+                // enable cookie-based authentication
                         'allowAutoLogin'=>true,
                 ),
                 // uncomment the following to enable URLs in path-format

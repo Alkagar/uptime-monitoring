@@ -17,17 +17,16 @@
 
         public function __construct($spaceUrl, $spaceToUse)
         {
+            parent::__construct();
+
             $this->_spaceUrl = $spaceUrl;
             $this->_spaceToUse = $spaceToUse;
-
-            $this->attachBehavior('ALog', 'ALogBehavior');
         }
 
         protected function _monitor()
         {
             $usedSpace = $this->_space($this->_spaceUrl);
             $this->_usedSpace = $usedSpace;
-            $this->prepareToLogToDb();
         }
 
         public function prepareLogData()

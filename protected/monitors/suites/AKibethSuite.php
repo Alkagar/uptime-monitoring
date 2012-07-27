@@ -10,7 +10,7 @@
             $this->addMonitor(new APdf($host . '/uptime/pdf'));
             $this->addMonitor(new ABreak($host . '/uptime/errors'));
             $this->addMonitor(new AOverload($host . '/uptime/errors'));
-            $this->addMonitor(new ASpace($host . '/uptime/space', 512000));
+            $this->addMonitor(new ASpace($host . '/uptime/space', 102400));
             $this->addMonitor(new ADb($host . '/uptime/db'));
         }
     }

@@ -4,7 +4,7 @@
     {
         public function actionIndex()
         {
-            $erkSuite = new AErkSuite();
+            $erkSuite = new AKibethSuite();
             $erkSuite->runSuite();
 
             $this->render('index');

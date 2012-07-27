@@ -2,16 +2,11 @@
    class ALogEntry extends CComponent
    {
       private $_datetime;
-      public $monitor_type;
       private $_specification;
       private $_parameters;
-      private $_
-      public $result_code;
-
-
-
-
-
+      private $_resultInfo;
+      public  $resultCode;
+      public  $monitorType;
 
       public function getDatetime()
       {
@@ -21,20 +16,44 @@
          return $this->_datetime;
       }
 
-      public function getData()
+      public function getResultInfo()
       {
-         print_r($this->_data);
-         return CJSON::decode($this->_data);
+         print_r($this->_resultInfo);
+         return CJSON::decode($this->_resultInfo);
       }
 
-      public function getJsonData()
+      public function setResultInfo($value)
       {
-         return $this->_data;
+         $this->_resultInfo = CJSON::encode($value);
       }
 
-      public function setData($value)
+      public function getSpecification()
       {
-         $this->_data = CJSON::encode($value);
+         print_r($this->_specification);
+         return CJSON::decode($this->_specification);
       }
+
+      public function setSpecification($value)
+      {
+         $this->_specification = CJSON::encode($value);
+      }
+
+      public function getParameters()
+      {
+         print_r($this->_parameters);
+         return CJSON::decode($this->_parameters);
+      }
+
+      public function setParameters($value)
+      {
+         $this->_parameters = CJSON::encode($value);
+      }
+
+      public function getJson($fieldName)
+      {
+         $field = '_' . $fieldName;
+         return $this->$field;
+      }
+   
    }
 

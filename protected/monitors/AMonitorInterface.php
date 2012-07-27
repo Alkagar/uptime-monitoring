@@ -1,9 +1,8 @@
 <?php
-   interface AMonitorInterface
-   {
-     public function monitorResult();
-     public function monitor();
-
-
-     public function getCode();
-   }
+    interface AMonitorInterface
+    {
+        public function getMonitorResult();
+        public function monitor();
+        public function getMonitorCode();
+        public function logToDb();
+    }

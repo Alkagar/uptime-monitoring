@@ -21,9 +21,8 @@
 
         public function monitor()
         {
-
-            $ms = $this->runMonitorWithTimer('AUtil::ping', array($this->_host, $this->_port));
-            //$ms = AUtil::ping($this->_host, $this->_port);
+            //$ms = $this->runMonitorWithTimer('AUtil::ping', array($this->_host, $this->_port));
+            $ms = AUtil::ping($this->_host, $this->_port);
             $this->_pingResult = $ms;
             $this->prepareToLogToDb();
         }
@@ -36,7 +35,6 @@
             );
             $this->resultInfo = array(
                 'ping_time_in_ms'   => $this->_pingResult, 
-                'timePassed'            => $this->_timePassed,
             );
             $this->parameters = array(
                 'maxAcceptablePing' => $this->_maxAcceptablePing,

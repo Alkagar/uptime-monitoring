@@ -1,5 +1,5 @@
 <?php
-    class ABreak extends CComponent implements AMonitorInterface
+    class ABreak extends AMonitor
     {
 
         /** Monitor parameters */
@@ -22,7 +22,7 @@
 
         public function monitor()
         {
-            $isPageOnBreak = $this->_break($this->_breakUrl);
+            $isPageOnBreak = $this->runMonitorWithTimer(array($this, '_break'), array($this->_breakUrl));
             $this->_isPageOnBreak = $isPageOnBreak;
             $this->prepareToLogToDb();
         }
@@ -35,6 +35,7 @@
             // TODO: add information about ping time for this monitor ??
             $this->resultInfo = array(
                 'isPageOnBreak'   => $this->_isPageOnBreak,
+                'timePassed'            => $this->_timePassed,
             );
             $this->parameters = array( );
         }
@@ -49,7 +50,7 @@
             return AMonitorsCodes::MONITOR_BREAK;
         }
 
-        private function _break($breakUrl) 
+        protected function _break($breakUrl) 
         {
             $breakFile = implode(PHP_EOL, file($breakUrl));
             return strpos($breakFile, 'Maintenance break') !== FALSE; 

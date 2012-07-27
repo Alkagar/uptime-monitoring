@@ -1,5 +1,5 @@
 <?php
-    class ADb extends CComponent implements AMonitorInterface
+    class ADb extends AMonitor
     {
 
         /** Monitor parameters */
@@ -22,7 +22,7 @@
 
         public function monitor()
         {
-            $isDbWorking = $this->_db($this->_dbUrl);
+            $isDbWorking = $this->runMonitorWithTimer(array($this, '_db'), array($this->_dbUrl));
             $this->_isDbWorking = $isDbWorking;
             $this->prepareToLogToDb();
         }
@@ -35,6 +35,7 @@
             // TODO: add information about ping time for this monitor ??
             $this->resultInfo = array(
                 'isDbWorking'   => $this->_isDbWorking,
+                'timePassed'            => $this->_timePassed,
             );
             $this->parameters = array( );
         }
@@ -56,7 +57,7 @@
          * @param string $dbUrl url to db test page
          * @return bool
          */
-        private function _db($dbUrl) 
+        protected function _db($dbUrl) 
         {
             $dbTest = file($dbUrl);
             return strpos($dbTest[0], 'erk') === 0;

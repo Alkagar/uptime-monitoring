@@ -1,5 +1,5 @@
 <?php
-    class AOverload extends CComponent implements AMonitorInterface
+    class AOverload extends AMonitor
     {
 
         /** Monitor parameters */
@@ -22,7 +22,7 @@
 
         public function monitor()
         {
-            $isPageOverloaded = $this->_overload($this->_overloadUrl);
+            $isPageOverloaded = $this->runMonitorWithTimer(array($this, '_overload'), array($this->_overloadUrl));
             $this->_isPageOverloaded = $isPageOverloaded;
             $this->prepareToLogToDb();
         }
@@ -35,6 +35,7 @@
             // TODO: add information about ping time for this monitor ??
             $this->resultInfo = array(
                 'isPageOverloaded'   => $this->_isPageOverloaded,
+                'timePassed'            => $this->_timePassed,
             );
             $this->parameters = array( );
         }
@@ -49,7 +50,7 @@
             return AMonitorsCodes::MONITOR_OVERLOAD;
         }
 
-        private function _overload($overloadUrl) 
+        protected function _overload($overloadUrl) 
         {
             $overloadFile = implode(PHP_EOL, file($overloadUrl));
             return strpos($overloadFile, 'The page is overloaded') !== FALSE; 

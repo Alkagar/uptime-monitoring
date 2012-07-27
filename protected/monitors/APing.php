@@ -21,19 +21,12 @@
 
         public function monitor()
         {
-            $ms = $this->_ping($this->_host, $this->_port);
+            $ms = AUtil::ping($this->_host, $this->_port);
             $this->_pingResult = $ms;
-            $this->logToDb();
+            $this->prepareToLogToDb();
         }
 
-        public function logToDb() 
-        {
-            $this->_prepareLogData();
-            $logEntry = $this->prepareLogEntry();
-            $this->logDB($logEntry);
-        }
-
-        private function _prepareLogData()
+        public function prepareLogData()
         {
             $this->specification = array(
                 'host'              => $this->_host,
@@ -56,14 +49,5 @@
         public function getMonitorCode()
         {
             return AMonitorsCodes::MONITOR_PING;
-        }
-
-        private function _ping($host, $port = 80, $timeout = 1) 
-        { 
-            $tB = microtime(true); 
-            $fP = fSockOpen($host, $port, $errno, $errstr, $timeout); 
-            if (!$fP) { return "down"; } 
-            $tA = microtime(true); 
-            return round((($tA - $tB) * 1000), 2); 
         }
     }

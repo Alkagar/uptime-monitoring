@@ -24,17 +24,10 @@
         {
             $isPageOnBreak = $this->_break($this->_breakUrl);
             $this->_isPageOnBreak = $isPageOnBreak;
-            $this->logToDb();
+            $this->prepareToLogToDb();
         }
 
-        public function logToDb() 
-        {
-            $this->_prepareLogData();
-            $logEntry = $this->prepareLogEntry();
-            $this->logDB($logEntry);
-        }
-
-        private function _prepareLogData()
+        public function prepareLogData()
         {
             $this->specification = array(
                 'breakUrl'              => $this->_breakUrl,

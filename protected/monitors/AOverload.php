@@ -24,17 +24,10 @@
         {
             $isPageOverloaded = $this->_overload($this->_overloadUrl);
             $this->_isPageOverloaded = $isPageOverloaded;
-            $this->logToDb();
+            $this->prepareToLogToDb();
         }
 
-        public function logToDb() 
-        {
-            $this->_prepareLogData();
-            $logEntry = $this->prepareLogEntry();
-            $this->logDB($logEntry);
-        }
-
-        private function _prepareLogData()
+        public function prepareLogData()
         {
             $this->specification = array(
                 'overloadUrl'              => $this->_overloadUrl,

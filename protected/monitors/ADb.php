@@ -24,17 +24,10 @@
         {
             $isDbWorking = $this->_db($this->_dbUrl);
             $this->_isDbWorking = $isDbWorking;
-            $this->logToDb();
+            $this->prepareToLogToDb();
         }
 
-        public function logToDb() 
-        {
-            $this->_prepareLogData();
-            $logEntry = $this->prepareLogEntry();
-            $this->logDB($logEntry);
-        }
-
-        private function _prepareLogData()
+        public function prepareLogData()
         {
             $this->specification = array(
                 'dbUrl'              => $this->_dbUrl,

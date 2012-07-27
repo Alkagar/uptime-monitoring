@@ -24,17 +24,10 @@
         {
             $isPdfDaemonRunning = $this->_pdf($this->_pdfUrl);
             $this->_isPdfDaemonRunning = $isPdfDaemonRunning;
-            $this->logToDb();
+            $this->prepareToLogToDb();
         }
 
-        public function logToDb() 
-        {
-            $this->_prepareLogData();
-            $logEntry = $this->prepareLogEntry();
-            $this->logDB($logEntry);
-        }
-
-        private function _prepareLogData()
+        public function prepareLogData()
         {
             $this->specification = array(
                 'pdfUrl'              => $this->_pdfUrl,

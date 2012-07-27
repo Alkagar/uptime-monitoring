@@ -27,17 +27,10 @@
         {
             $usedSpace = $this->_space($this->_spaceUrl);
             $this->_usedSpace = $usedSpace;
-            $this->logToDb();
+            $this->prepareToLogToDb();
         }
 
-        public function logToDb() 
-        {
-            $this->_prepareLogData();
-            $logEntry = $this->prepareLogEntry();
-            $this->logDB($logEntry);
-        }
-
-        private function _prepareLogData()
+        public function prepareLogData()
         {
             $this->specification = array(
                 'spaceUrl'              => $this->_spaceUrl,

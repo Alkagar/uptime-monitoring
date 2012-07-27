@@ -8,8 +8,12 @@ return array(
 
 	// autoloading model and component classes
 	'import'=>array(
-		'application.models.*',
-		'application.components.*',
+                'application.models.*',
+                'application.components.*',
+                'application.monitors.*',
+                'application.monitors.behaviors.*',
+                'application.monitors.suites.*',
+                'application.monitors.objects.*',
 	),
 
 	// preloading 'log' component

@@ -19,6 +19,7 @@ return array(
                 'application.monitors.*',
                 'application.monitors.behaviors.*',
                 'application.monitors.objects.*',
+                'application.monitors.suites.*',
         ),
 
         'modules'=>array(

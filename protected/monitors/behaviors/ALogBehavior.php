@@ -28,4 +28,12 @@
 
             return $logEntry;
         }
+
+        public function prepareToLogToDb() 
+        {
+            $this->owner->prepareLogData();
+            $logEntry = $this->owner->prepareLogEntry();
+            $this->owner->logDB($logEntry);
+        }
+
     }

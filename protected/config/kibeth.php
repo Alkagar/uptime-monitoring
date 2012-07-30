@@ -49,7 +49,7 @@
                   'sentFrom'   => 'erk@uj.edu.pl',
                   'levels'     => 'profile',
                   'categories' => 'monitors.information',
-                  'emails'     => array('jakub@mrowiec.org'),
+                  'emails'     => array('jakub@mrowiec.org', 'konrad.sacala@uj.edu.pl'),
                ),
             ),
          ),

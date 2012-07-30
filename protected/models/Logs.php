@@ -40,11 +40,17 @@
          return $criteria;
       }
 
-      public static function getLogsByTypeCriteria($monitorCode, $limit = 5)
+      public static function getLogsBySpecification($specification)
       {
          $criteria = new CDbCriteria();
-         $criteria->limit = $limit;
-         $criteria->order = 'id DESC';
+         $criteria->addColumnCondition(array(
+            'specification' => $specification, 
+         ));
+         return $criteria;
+         }
+      public static function getLogsByTypeCriteria($monitorCode)
+      {
+         $criteria = new CDbCriteria();
          $criteria->addColumnCondition(array(
             'monitor_type' => $monitorCode, 
          ));

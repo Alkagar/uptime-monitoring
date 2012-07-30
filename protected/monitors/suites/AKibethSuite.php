@@ -6,7 +6,7 @@
          $host = 'pelikan.cusi.uj.edu.pl';
          $this->addMonitor(new APing($host, 23480 ));
 
-         $host = 'http://pelikan.cusi.uj.edu.pl:23480';
+         $host = 'http://' . $host . ':23480';
          $this->addMonitor(new APdf($host . '/uptime/pdf'));
          $this->addMonitor(new ABreak($host . '/uptime/errors'));
          $this->addMonitor(new AOverload($host . '/uptime/errors'));

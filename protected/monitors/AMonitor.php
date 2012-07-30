@@ -35,11 +35,26 @@
          return $result;
       }
 
+      /**
+       * isSuccessiveError 
+       * check if actual error is successive. Return true only when 
+       * last error is the same as actual one. Return false when error
+       * status has changed till last tests.
+       * 
+       * @return bool 
+       */
       public function isSuccessiveError()
       { 
          $monitorCode = $this->getMonitorCode();
          $monitorName = $this->getMonitorName();
+         $logEntrySpecification = $this->_logEntry->getJson('specification');
          $criteria = Logs::getLogsByTypeCriteria($monitorCode, 2);
+         // get only two last entries
+         $criteria->limit = 2;
+         // and order by id to get most recent entries
+         $criteria->order = 'id DESC';
+         // merge with criteria to specify logs for this system only
+         $criteria->mergeWith(Logs::getLogsBySpecification($logEntrySpecification));
          $logs = Logs::model()->findAll($criteria);
          if(count($logs) < 2) {
             return true;
@@ -48,6 +63,7 @@
          $previousLogResultCode = $logs[1]->result_code;
          Yii::trace($actualLogResultCode, 'monitors.results.' . $monitorName);
          Yii::trace($previousLogResultCode, 'monitors.results.' . $monitorName);
+         // if codes are the same it means that it's successive error
          return $actualLogResultCode == $previousLogResultCode;
       }
 

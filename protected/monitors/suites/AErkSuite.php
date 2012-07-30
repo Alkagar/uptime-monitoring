@@ -1,13 +1,16 @@
 <?php
-    class AErkSuite extends ASuite
-    {
-        public function init()
-        {
-            $this->addMonitor(new APing('erk.uj.edu.pl', 80));
-            $this->addMonitor(new APdf('http://erk.kibeth:23480/uptime/pdf'));
-            $this->addMonitor(new ABreak('http://erk.kibeth:23480/uptime/errors'));
-            $this->addMonitor(new AOverload('http://erk.kibeth:23480/uptime/errors'));
-            $this->addMonitor(new ASpace('http://erk.kibeth:23480/uptime/space', 512000));
-            $this->addMonitor(new ADb('http://erk.kibeth:23480/uptime/db'));
-        }
-    }
+   class AErkSuite extends ASuite
+   {
+      public function init()
+      {
+         $host = 'erk.uj.edu.pl';
+         $this->addMonitor(new APing($host));
+
+         $host = 'https://' . $host;
+         $this->addMonitor(new APdf($host . '/uptime/pdf'));
+         $this->addMonitor(new ABreak($host . '/uptime/errors'));
+         $this->addMonitor(new AOverload($host . '/uptime/errors'));
+         $this->addMonitor(new ASpace($host . '/uptime/space', 102400));
+         $this->addMonitor(new ADb($host . '/uptime/db'));
+      }
+   }

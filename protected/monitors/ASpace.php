@@ -55,8 +55,7 @@
       /**
       * _space
       * 
-      * 
-      * @param string $dbUrl url to db test page
+      * @param string $spaceUrl url to space test page
       * @return int $space used space in KB 
       */
       private function _space($spaceUrl) 

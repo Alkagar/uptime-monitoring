@@ -26,11 +26,34 @@
          $result = $this->_monitor();
          $tA = microtime(true); 
          $this->_timePassed = round((($tA - $tB) * 1000), 2); 
-         $this->_logEntry = $this->prepareToLogToDb();
+         $this->_logEntry = $this->logToDb();
          if($this->getMonitorResult() === AMonitorsCodes::RESULT_ERROR) {
-            Yii::log((string)$this->_logEntry, 'profile', 'monitors.information');
+            if(! $this->isSuccessiveError()) {
+               Yii::log((string)$this->_logEntry, 'profile', 'monitors.information');
+            }
          }
          return $result;
+      }
+
+      public function isSuccessiveError()
+      { 
+         $monitorCode = $this->getMonitorCode();
+         $monitorName = $this->getMonitorName();
+         $criteria = Logs::getLogsByTypeCriteria($monitorCode, 2);
+         $logs = Logs::model()->findAll($criteria);
+         if(count($logs) < 2) {
+            return true;
+         }
+         $actualLogResultCode   = $logs[0]->result_code;
+         $previousLogResultCode = $logs[1]->result_code;
+         Yii::trace($actualLogResultCode, 'monitors.results.' . $monitorName);
+         Yii::trace($previousLogResultCode, 'monitors.results.' . $monitorName);
+         return $actualLogResultCode == $previousLogResultCode;
+      }
+
+      public function getMonitorName()
+      {
+         return AMonitorsCodes::$MONITOR_NAMES[$this->getMonitorCode()];
       }
 
       protected function _monitor() { throw new Exception('Not yet implemented!'); }

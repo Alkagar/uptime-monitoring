@@ -1,79 +1,61 @@
 <?php
+   return array(
+      'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
+      'name'=>'UptimeMonitoring by ERK',
 
-// uncomment the following to define a path alias
-// Yii::setPathOfAlias('local','path/to/local-folder');
+      'preload'=>array('log'),
 
-// This is the main Web application configuration. Any writable
-// CWebApplication properties can be configured here.
-return array(
-        'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-        'name'=>'UptimeMonitoring by ERK',
-
-        // preloading 'log' component
-        'preload'=>array('log'),
-
-        // autoloading model and component classes
-        'import'=>array(
-                'application.extensions.KEmail.KEmail',
-                'application.models.*',
-                'application.components.*',
-                'application.monitors.*',
-                'application.monitors.behaviors.*',
-                'application.monitors.objects.*',
-                'application.monitors.suites.*',
-        ),
-
-        'modules'=>array(
-        ),
-
-        // application components
-        'components'=>array(
-            'email'=>array(
-                'class'=>'KEmail',
-                'host_name'=>'smtp.gmail.com', //Hostname or IP of smtp server
-                'user' => 'alkagar@gmail.com',
-                'password' => 'Tar-Telemnar#1',
-                'host_port' => 465,
+      'import'=>array(
+         'application.models.*',
+         'application.components.*',
+         'application.monitors.*',
+         'application.monitors.behaviors.*',
+         'application.monitors.objects.*',
+         'application.monitors.suites.*',
+      ),
+      // application components
+      'components'=>array(
+         'user'=>array(
+            'allowAutoLogin'=>true, // enable cookie-based authentication
+         ),
+         // uncomment the following to enable URLs in path-format
+         'urlManager'=>array(
+            'urlFormat'=>'path',
+            'rules'=>array(
+               '<controller:\w+>/<id:\d+>'              => '<controller>/view',
+               '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+               '<controller:\w+>/<action:\w+>'          => '<controller>/<action>',
             ),
-            'user'=>array(
-                // enable cookie-based authentication
-                        'allowAutoLogin'=>true,
-                ),
-                // uncomment the following to enable URLs in path-format
-                'urlManager'=>array(
-                        'urlFormat'=>'path',
-                        'rules'=>array(
-                                '<controller:\w+>/<id:\d+>'=>'<controller>/view',
-                                '<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
-                                '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
-                        ),
-                ),
-                'db'=>array(
-                        'connectionString' => 'sqlite:/home/alkagar/repos/uptime/protected/data/uptime.db',
-                ),
-                'errorHandler'=>array(
-                        // use 'site/error' action to display errors
-                        'errorAction'=>'site/error',
-                ),
-                'log'=>array(
-                        'class'=>'CLogRouter',
-                        'routes'=>array(
-                                array(
-                                        'class'=>'CFileLogRoute',
-                                        'levels'=>'error, warning',
-                                ),
-                                // uncomment the following to show log messages on web pages
-                                array(
-                                        'class'=>'CWebLogRoute',
-                                ),
-                        ),
-                ),
-        ),
-
-        // application-level parameters that can be accessed
-        // using Yii::app()->params['paramName']
-        'params'=>array(
-                // this is used in contact page
-                'adminEmail'=>'jakub@mrowiec.org',
-        ),
-);
+         ),
+         'db'=>array(
+            'connectionString' => 'sqlite:/home/alkagar/repos/uptime/protected/data/uptime.db',
+         ),
+         'errorHandler'=>array(
+            'errorAction'=>'site/error', // use 'site/error' action to display errors
+         ),
+         'log'=>array(
+            'class'=>'CLogRouter',
+            'routes'=>array(
+               array(
+                  'class'      => 'CFileLogRoute',
+                  'levels'     => 'error, warning',
+               ),
+               array(
+                  'class'      => 'CWebLogRoute',
+               ),
+               array(
+                  'class'      => 'CEmailLogRoute',
+                  'subject'    => 'Wiedz że coś się dzieje! - Uptime Monitoring by ERK',
+                  'sentFrom'   => 'erk@uj.edu.pl',
+                  'levels'     => 'profile',
+                  'categories' => 'monitors.information',
+                  'emails'     => array('jakub@mrowiec.org'),
+               ),
+            ),
+         ),
+      ),
+      // application-level parameters that can be accessed using Yii::app()->params['paramName']
+      'params'=>array(
+         'adminEmail'=>'jakub@mrowiec.org',
+      ),
+   );

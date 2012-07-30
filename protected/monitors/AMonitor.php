@@ -27,6 +27,7 @@
          $tA = microtime(true); 
          $this->_timePassed = round((($tA - $tB) * 1000), 2); 
          $this->_logEntry = $this->logToDb();
+
          if($this->getMonitorResult() === AMonitorsCodes::RESULT_ERROR) {
             if(! $this->isSuccessiveError()) {
                Yii::log((string)$this->_logEntry, 'profile', 'monitors.information');
@@ -36,13 +37,13 @@
       }
 
       /**
-       * isSuccessiveError 
-       * check if actual error is successive. Return true only when 
-       * last error is the same as actual one. Return false when error
-       * status has changed till last tests.
-       * 
-       * @return bool 
-       */
+      * isSuccessiveError 
+      * check if actual error is successive. Return true only when 
+      * last error is the same as actual one. Return false when error
+      * status has changed till last tests.
+      * 
+      * @return bool 
+      */
       public function isSuccessiveError()
       { 
          $monitorCode = $this->getMonitorCode();

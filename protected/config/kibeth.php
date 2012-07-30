@@ -35,7 +35,7 @@
          ),
          'log'=>array(
             'class'=>'CLogRouter',
-            'routes'=>array(
+            'routes'=> array(
                array(
                   'class'      => 'CFileLogRoute',
                   'levels'     => 'error, warning',
@@ -43,15 +43,7 @@
                array(
                   'class'      => 'CWebLogRoute',
                ),
-               array(
-                  'class'      => 'CEmailLogRoute',
-                  'subject'    => 'Wiedz że coś się dzieje! - Uptime Monitoring by ERK',
-                  'sentFrom'   => 'erk@uj.edu.pl',
-                  'levels'     => 'profile',
-                  'categories' => 'monitors.information',
-                  'emails'     => array('jakub@mrowiec.org', 'konrad.sacala@uj.edu.pl'),
-               ),
-            ),
+            ), 
          ),
       ),
       // application-level parameters that can be accessed using Yii::app()->params['paramName']

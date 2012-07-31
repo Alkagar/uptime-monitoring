@@ -7,6 +7,7 @@
       private $_resultInfo;
       public  $resultCode;
       public  $monitorType;
+      public  $sendMessage = '';
 
       public function getDatetime()
       {
@@ -58,6 +59,7 @@
       public function __toString() 
       {
          return  PHP_EOL .  
+         "message: \n\t" . $this->sendMessage . PHP_EOL .
          "time: \n\t " . date("Y-m-d H:i:s", $this->datetime) . PHP_EOL . 
          sprintf("monitor type: \n\t %-20s", AMonitorsCodes::$MONITOR_NAMES[$this->monitorType]) . PHP_EOL . 
          "result code: \n\t " . $this->resultCode . PHP_EOL . 

@@ -1,6 +1,8 @@
 <?php
    class ADb extends AMonitor
    {
+      protected $_testFailedMessage = 'Występują problemy z bazą danych.';
+      protected $_testOkMessage = 'Problemy z bazą danych przestały wystepować.';
 
       /** Monitor parameters */
       private $_isDbWorking;

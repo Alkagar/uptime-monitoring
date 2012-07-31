@@ -1,6 +1,8 @@
 <?php
    class ABreak extends AMonitor
    {
+      protected $_testFailedMessage = 'Strona zwraca informację o przerwie technicznej (nginx).';
+      protected $_testOkMessage = 'Strona odpowiada już normalnie.';
 
       /** Monitor parameters */
       private $_isPageOnBreak;

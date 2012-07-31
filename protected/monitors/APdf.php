@@ -1,6 +1,8 @@
 <?php
    class APdf extends AMonitor 
    {
+      protected $_testFailedMessage = 'Daemon PDF nie działa poprawnie. Należy go uruchomić.';
+      protected $_testOkMessage = 'PDF\'y generują się już poprawnie.';
 
       /** Monitor parameters */
       private $_isPdfDaemonRunning;

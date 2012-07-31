@@ -42,6 +42,7 @@
                ),
                array(
                   'class'      => 'CWebLogRoute',
+                  'categories' => 'monitors.*',
                ),
             ), 
          ),

@@ -1,32 +1,34 @@
 <?php
    class ASpace extends AMonitor
    {
+      protected $_testFailedMessage = 'Kończy się miejsce na dysku!!';
+      protected $_testOkMessage = 'Nagle przybyło miejsca. Nie masz się już czym przejmować.';
 
       /** Monitor parameters */
       private $_isEnoughSpace;
-      private $_spaceToUse;
+      private $_minimumFreeSpace;
 
       /** Monitor specification */
       private $_spaceUrl;
-      private $_usedSpace;
+      private $_freeSpace;
 
       public  $resultInfo;
       public  $specification;
       public  $parameters;
 
 
-      public function __construct($spaceUrl, $spaceToUse)
+      public function __construct($spaceUrl, $minimumFreeSpace)
       {
          parent::__construct();
 
          $this->_spaceUrl = $spaceUrl;
-         $this->_spaceToUse = $spaceToUse;
+         $this->_minimumFreeSpace = $minimumFreeSpace;
       }
 
       protected function _monitor()
       {
-         $usedSpace = $this->_space($this->_spaceUrl);
-         $this->_usedSpace = $usedSpace;
+         $freeSpace = $this->_space($this->_spaceUrl);
+         $this->_freeSpace = $freeSpace;
       }
 
       public function prepareLogData()
@@ -35,16 +37,16 @@
             'spaceUrl'              => $this->_spaceUrl,
          );
          $this->resultInfo = array(
-            'usedSpace'   => $this->_usedSpace . 'KB',
+            'freeSpace'             => $this->_freeSpace . 'kb',
          );
-         $this->parameters = array( 
-            'spaceToUse'         => $this->_spaceToUse . 'KB',
+         $this->parameters = array(
+            'minimumfreespace'      => $this->_minimumFreeSpace . 'KB',
          );
       }
 
       public function getMonitorResult()
       {
-         return $this->_spaceToUse > $this->_usedSpace ? AMonitorsCodes::RESULT_OK : AMonitorsCodes::RESULT_ERROR;
+         return $this->_minimumFreeSpace < $this->_freeSpace ? AMonitorsCodes::RESULT_OK : AMonitorsCodes::RESULT_ERROR;
       }
 
       public function getMonitorCode()
@@ -56,7 +58,7 @@
       * _space
       * 
       * @param string $spaceUrl url to space test page
-      * @return int $space used space in KB 
+      * @return int $space free space in KB 
       */
       private function _space($spaceUrl) 
       {

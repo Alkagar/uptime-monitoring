@@ -1,6 +1,8 @@
 <?php
    class AOverload extends AMonitor
    {
+      protected $_testFailedMessage = 'Strona jest przeciążona. Zwraca komunikat o przeciążeniu (nginx).';
+      protected $_testOkMessage = 'Strona odpowiada już normalnie.';
 
       /** Monitor parameters */
       private $_isPageOverloaded;

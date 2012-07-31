@@ -4,8 +4,9 @@
    {
       public function actionIndex()
       {
-         $erkSuite = new AKibethSuite();
-         $erkSuite->runSuite();
+         $suite = new AErkSuite();
+         //$suite = new ARekrutacjaSuite();
+         $suite->runSuite();
 
          $this->render('index');
 

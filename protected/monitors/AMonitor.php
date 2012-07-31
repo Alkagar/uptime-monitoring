@@ -7,6 +7,9 @@
    */
    abstract class AMonitor extends CComponent implements AMonitorInterface
    { 
+      protected $_testFailedMessage = 'Human readable message not defined.';
+      protected $_testOkMessage = 'Human readable message not defined.';
+
       public  $resultInfo;
       public  $specification;
       public  $parameters = 0;
@@ -28,10 +31,11 @@
          $this->_timePassed = round((($tA - $tB) * 1000), 2); 
          $this->_logEntry = $this->logToDb();
 
-         if($this->getMonitorResult() === AMonitorsCodes::RESULT_ERROR) {
-            if(! $this->isSuccessiveError()) {
-               Yii::log((string)$this->_logEntry, 'profile', 'monitors.information');
-            }
+         if(! $this->isSuccessiveStatus()) {
+            $this->_logEntry->sendMessage = $this->getMonitorResult() === AMonitorsCodes::RESULT_ERROR ?
+            $this->_testFailedMessage : $this->_testOkMessage;
+            echo('monitors.' . ASuite::$actualSuite . '<br />');
+            Yii::log((string)$this->_logEntry, 'profile', 'monitors.' . ASuite::$actualSuite);
          }
          return $result;
       }
@@ -44,7 +48,7 @@
       * 
       * @return bool 
       */
-      public function isSuccessiveError()
+      public function isSuccessiveStatus()
       { 
          $monitorCode = $this->getMonitorCode();
          $monitorName = $this->getMonitorName();
@@ -64,7 +68,7 @@
          $previousLogResultCode = $logs[1]->result_code;
          Yii::trace($actualLogResultCode, 'monitors.results.' . $monitorName);
          Yii::trace($previousLogResultCode, 'monitors.results.' . $monitorName);
-         // if codes are the same it means that it's successive error
+         // if codes are the same it means that it's successive status
          return $actualLogResultCode == $previousLogResultCode;
       }
 

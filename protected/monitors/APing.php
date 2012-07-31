@@ -13,6 +13,7 @@
 
       private $_host;
       private $_port;
+      const AVERAGE_ITEMS = 5;
 
       public function __construct($host, $port = 80, $maxAcceptablePing = 20)
       {
@@ -24,7 +25,7 @@
 
       protected function _monitor()
       {
-         $ms = AUtil::ping($this->_host, $this->_port);
+         $ms = $this->_getCalculatedPing();
          $this->_pingResult = $ms;
       }
 
@@ -33,9 +34,10 @@
          $this->specification = array(
             'host'              => $this->_host,
             'port'              => $this->_port,
+            'averageFromItems'  => self::AVERAGE_ITEMS,
          );
          $this->resultInfo = array(
-            'ping_time_in_ms'   => $this->_pingResult, 
+            'pingTimeInMs'   => $this->_pingResult, 
          );
          $this->parameters = array(
             'maxAcceptablePing' => $this->_maxAcceptablePing,
@@ -50,5 +52,17 @@
       public function getMonitorCode()
       {
          return AMonitorsCodes::MONITOR_PING;
+      }
+
+      private function _getCalculatedPing()
+      {
+         $averagePingArray = array();
+         for($i = 0; $i < self::AVERAGE_ITEMS; $i++) {
+            $averagePingArray[] = AUtil::ping($this->_host, $this->_port);
+         }
+         sort($averagePingArray);
+         array_pop($averagePingArray);
+         array_shift($averagePingArray);
+         return round(array_sum($averagePingArray) / count($averagePingArray), 2);
       }
    }

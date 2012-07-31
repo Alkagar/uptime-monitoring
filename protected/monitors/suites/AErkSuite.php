@@ -4,9 +4,7 @@
       public function init()
       {
          $this->addLogEmail('konrad.sacala@uj.edu.pl');
-         $this->addLogEmail('konrad.sacala@gmail.com');
          $this->addLogEmail('jakub.mrowiec@uj.edu.pl');
-         $this->addLogEmail('jakub@mrowiec.org');
 
          $host = 'erk.uj.edu.pl';
          $this->addMonitor(new APing($host, 80, 30));

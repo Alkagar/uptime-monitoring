@@ -6,14 +6,12 @@
       {
          $suite = new AErkSuite();
          //$suite = new ARekrutacjaSuite();
-         $suite->runSuite();
+        $suite->runSuite();
 
-         $this->render('index');
-
-         $logs = Logs::model()->findAll(Logs::getLastXCriteria(6));
-         foreach($logs as $log) {
-            echo $log . '<br />';
-         }
+        $criteria = Logs::getLastXCriteria(480);
+        $criteria->addColumnCondition(array('monitor_type' => AMonitorsCodes::MONITOR_PING));
+         $logs = Logs::model()->findAll($criteria);
+         $this->render('index', array('logs' => $logs));
       }
 
       /**
@@ -29,7 +27,6 @@
             $this->render('error', $error);
          }
       }
-
 
       /**
       * Displays the login page

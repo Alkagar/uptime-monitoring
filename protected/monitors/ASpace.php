@@ -46,6 +46,9 @@
 
       public function getMonitorResult()
       {
+         if($this->_freeSpace == -1) {
+            return AMonitorsCodes::RESULT_OK;
+         }
          return $this->_minimumFreeSpace < $this->_freeSpace ? AMonitorsCodes::RESULT_OK : AMonitorsCodes::RESULT_ERROR;
       }
 

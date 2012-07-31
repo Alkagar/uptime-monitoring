@@ -1,8 +1,8 @@
 <?php
    class ATextExists extends AMonitor
    {
-      protected $_testFailedMessage = '';
-      protected $_testOkMessage = '';
+      protected $_testFailedMessage = 'Niestety strona nie załadowała się poprawnie.';
+      protected $_testOkMessage = 'Strona znowu ładuje się poprawnie.';
 
       /** Monitor parameters */
       private $_isTextExisting;

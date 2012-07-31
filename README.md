@@ -1,4 +1,4 @@
 uptime-monitoring
 =================
 
-little application for monitoring online serwers
+little application for monitoring online servers

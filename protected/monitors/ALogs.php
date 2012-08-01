@@ -53,8 +53,9 @@
 
       protected function _page($pageUrl, $port) 
       {
-         $pageUrl = $pageUrl . '/port/' . $port;
-         $pageFile = implode(PHP_EOL, file($pageUrl));
-         return strpos($pageFile, trim('1')) !== FALSE; 
+         $url = $pageUrl . '/port/' . $port;
+         $f = @file($url);
+         $file = implode(PHP_EOL, $f ? $f : array());
+         return strpos($file, trim('1')) !== FALSE; 
       }
    }

@@ -51,9 +51,10 @@
          return AMonitorsCodes::MONITOR_TEXTEXISTS;
       }
 
-      protected function _page($pageUrl, $textToSearch) 
+      protected function _page($url, $textToSearch) 
       {
-         $pageFile = implode(PHP_EOL, file($pageUrl));
-         return strpos($pageFile, trim($textToSearch)) !== FALSE; 
+         $f = @file($url);
+         $file = implode(PHP_EOL, $f ? $f : array());
+         return strpos($file, trim($textToSearch)) !== FALSE; 
       }
    }

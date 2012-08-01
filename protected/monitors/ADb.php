@@ -56,9 +56,10 @@
       * @param string $dbUrl url to db test page
       * @return bool
       */
-      protected function _db($dbUrl) 
+      protected function _db($url) 
       {
-         $dbTest = file($dbUrl);
-         return strpos($dbTest[0], 'erk') === 0;
+         $f = @file($url);
+         $file = implode(PHP_EOL, $f ? $f : array());
+         return strpos($file, 'erk') === 0;
       }
    }

@@ -49,9 +49,10 @@
          return AMonitorsCodes::MONITOR_BREAK;
       }
 
-      protected function _break($breakUrl) 
+      protected function _break($url) 
       {
-         $breakFile = implode(PHP_EOL, file($breakUrl));
-         return strpos($breakFile, 'Maintenance break') !== FALSE; 
+         $f = @file($url);
+         $file = implode(PHP_EOL, $f ? $f : array());
+         return strpos($file, 'Maintenance break') !== FALSE; 
       }
    }

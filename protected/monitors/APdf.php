@@ -44,9 +44,10 @@
          return AMonitorsCodes::MONITOR_PDF;
       }
 
-      protected function _pdf($pdfUrl) 
+      protected function _pdf($url) 
       {
-         $pdfFile = file($pdfUrl);
-         return strpos($pdfFile[0], '%PDF-') === 0; 
+         $f = @file($url);
+         $file = implode(PHP_EOL, $f ? $f : array());
+         return strpos($file, '%PDF-') === 0; 
       }
    }

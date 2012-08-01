@@ -49,9 +49,10 @@
          return AMonitorsCodes::MONITOR_OVERLOAD;
       }
 
-      protected function _overload($overloadUrl) 
+      protected function _overload($url) 
       {
-         $overloadFile = implode(PHP_EOL, file($overloadUrl));
-         return strpos($overloadFile, 'The page is overloaded') !== FALSE; 
+         $f = @file($url);
+         $file = implode(PHP_EOL, $f ? $f : array());
+         return strpos($file, 'The page is overloaded') !== FALSE; 
       }
    }

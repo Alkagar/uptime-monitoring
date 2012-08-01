@@ -63,9 +63,10 @@
       * @param string $spaceUrl url to space test page
       * @return int $space free space in KB 
       */
-      private function _space($spaceUrl) 
+      private function _space($url) 
       {
-         $spaceTest = file($spaceUrl);
-         return (int)$spaceTest[0];
+         $f = @file($url);
+         $file = implode(PHP_EOL, $f ? $f : array());
+         return (int)$file;
       }
    }

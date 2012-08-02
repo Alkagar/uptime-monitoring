@@ -5,7 +5,7 @@
       protected $_testOkMessage = 'Serwer już działa poprawnie. Czas odpowiedzi znacząco się skrócił.';
 
       private $_pingResult;
-      private $_maxAcceptablePing = 20;
+      private $_maxAcceptablePing = 100;
 
       public  $resultInfo;
       public  $specification;
@@ -13,9 +13,9 @@
 
       private $_host;
       private $_port;
-      const AVERAGE_ITEMS = 5;
+      const AVERAGE_ITEMS = 10;
 
-      public function __construct($host, $port = 80, $maxAcceptablePing = 20)
+      public function __construct($host, $port = 80, $maxAcceptablePing = 100)
       {
          parent::__construct();
          $this->_port = $port;
@@ -61,8 +61,9 @@
             $averagePingArray[] = AUtil::ping($this->_host, $this->_port);
          }
          sort($averagePingArray);
-         array_pop($averagePingArray);
-         array_shift($averagePingArray);
+         for($i = 0; $i < 4; $i++) {
+             array_pop($averagePingArray);
+         }
          return round(array_sum($averagePingArray) / count($averagePingArray), 2);
       }
    }

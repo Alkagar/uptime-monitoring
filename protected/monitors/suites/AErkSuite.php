@@ -15,7 +15,5 @@
          $this->addMonitor(new AOverload($host . '/uptime/errors'));
          $this->addMonitor(new ASpace($host . '/uptime/space', 1 * 1024 * 1024));
          $this->addMonitor(new ADb($host . '/uptime/db'));
-         $this->addMonitor(new ALogs($host . '/uptime/logs', 443));
-         $this->addMonitor(new ALogs($host . '/uptime/logs', 843));
       }
    }

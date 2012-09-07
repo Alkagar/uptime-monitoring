@@ -4,11 +4,11 @@
       public static $actualSuite = 'generic';
       protected $_suiteName = '';
 
-      protected $_emails = array('erk@uj.edu.pl');
+      protected $_emails = array('');
       protected $_logEmailConfig = array(
          'class'      => 'CEmailLogRoute',
-         'subject'    => 'Wiedz że coś się dzieje! - Uptime Monitoring by ERK',
-         'sentFrom'   => 'erk@uj.edu.pl',
+         'subject'    => 'Wiedz że coś się dzieje! - Uptime Monitoring',
+         'sentFrom'   => '',
          'levels'     => 'profile',
          'categories' => 'monitors.generic',
       );

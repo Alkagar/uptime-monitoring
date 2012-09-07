@@ -2,3 +2,8 @@ protected/runtime/application.log
 protected/data/uptime.db
 protected/config/pelikan.php
 .htaccess
+protected/commands/
+protected/monitors/suites/AErkLogSuite.php
+protected/monitors/suites/AErkSuite.php
+protected/monitors/suites/AKibethSuite.php
+protected/monitors/suites/ARekrutacjaSuite.php
